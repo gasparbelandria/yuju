@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<link rel="stylesheet" href="css/style.css" title="" type="text/css" media="screen" charset="utf-8">
+		<link href='http://fonts.googleapis.com/css?family=Arvo:400,700|Lato:400,500' rel='stylesheet' type='text/css'>
+
+		<script src="http://code.jquery.com/jquery-1.9.0.min.js" charset="utf-8"></script>
+		<!-- youtube embed -->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<link rel="stylesheet" type="text/css" href="youTubeEmbed/youTubeEmbed-jquery-1.0.css" />
+
+		<script src="jquery.swfobject.1-1-1.min.js"></script>
+		<script src="youTubeEmbed/youTubeEmbed-jquery-1.0.js"></script>
+		<script src="script.js"></script>
+
+
+		<script src="http://code.jquery.com/jquery-migrate-1.1.1.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js" charset="utf-8"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.10/backbone-min.js" charset="utf-8"></script>
+		<script src="js/models/video.js" charset="utf-8"></script>
+		<script src="js/views/videos.js" charset="utf-8"></script>
+		<script src="js/collections/videos.js" charset="utf-8"></script>
+		<script src="js/views/app.js" charset="utf-8"></script>
+		<script src="js/app.js" charset="utf-8"></script>
+		<script src="js/routers/router.js" charset="utf-8"></script>
+		<meta name="viewport" content="initial-scale=1.0">
+	</head>
+	<body id="youtubeapp">
+		<div id="welcome" class="text center">
+		  <div class="text center">
+		    <h1 class="">Yuju for Kids</h1>
+		    <p>The best way to see videos safely.</p>
+		  </div>
+		</div>
+		<!--
+		<div id="search">
+			<input id="search-text" type="text" placeholder="Enter keywords here"/>
+			<input id="search-button" type="button" value="Search"/>
+		</div>
+		-->
+		<ul id="videos-list"></ul>
+		<div id="video-viewer">
+	  		<div id="video-wrapper"></div>
+		</div>
+
+		<div class="close"></div>
+		
+		
+	</body>
+	<script type="text/template" id="video-template">
+		<div id="container">
+			<div class="c--block" data-hex="" id="wrapper">
+				<a href="#video/<%- id %>"><img class="thumb" src="<%- thumb %>" width="120" height="90"></a>
+				<span class="author"><%- author %></span>
+				<span class="length"><%- title %></span>
+			</div>	
+		</div>
+	</script>
+</html>​

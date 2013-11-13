@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:rim="http://www.blackberry.com/ns/widgets" version="2.0.0.0">
+  <author href="@gasparbelandria" rim:copyright="Copyright 1998-2011 My Corp">@gasparbelandria</author>
+  <name>Yuju for Kids</name>
+  <description>
+    The best way to see videos safely.
+  </description>
+
+  <rim:orientation mode="auto"/>
+
+  <rim:loadingScreen backgroundImage="background.png"
+                     foregroundImage="foreground.gif"
+                     onLocalPageLoad="true">
+  <rim:transitionEffect type="zoomIn"/>
+  </rim:loadingScreen>
+		
+  <rim:category name="Entertainment"/>	
+
+  <icon src="icon.png"/>
+
+  <content src="index.html"/>
+
+  <feature id="blackberry.ui.dialog"/>
+  <feature id="blackberry.polarmobile.childbrowser" />
+  <access uri="http://www.backboneros.com/aboutme" subdomains="true">
+    <feature id="blackberry.app.event"/>
+    <feature id="blackberry.invoke"/>
+  </access>
+
+</widget>
