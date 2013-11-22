@@ -1,20 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title></title>
-		<link rel="stylesheet" href="css/style.css" title="" type="text/css" media="screen" charset="utf-8">
+		<meta name="viewport" content="user-scalable=no,initial-scale=1.0"> 
+		<link rel="stylesheet" href="css/style.css" 	type="text/css" media="screen" charset="utf-8">
 		<link href='http://fonts.googleapis.com/css?family=Arvo:400,700|Lato:400,500' rel='stylesheet' type='text/css'>
-
 		<script src="http://code.jquery.com/jquery-1.9.0.min.js" charset="utf-8"></script>
-		<!-- youtube embed -->
-<link rel="stylesheet" type="text/css" href="styles.css" />
-<link rel="stylesheet" type="text/css" href="youTubeEmbed/youTubeEmbed-jquery-1.0.css" />
-
-		<script src="jquery.swfobject.1-1-1.min.js"></script>
-		<script src="youTubeEmbed/youTubeEmbed-jquery-1.0.js"></script>
-		<script src="script.js"></script>
-
-
 		<script src="http://code.jquery.com/jquery-migrate-1.1.1.js"></script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js" charset="utf-8"></script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.10/backbone-min.js" charset="utf-8"></script>
@@ -24,37 +14,46 @@
 		<script src="js/views/app.js" charset="utf-8"></script>
 		<script src="js/app.js" charset="utf-8"></script>
 		<script src="js/routers/router.js" charset="utf-8"></script>
-		<meta name="viewport" content="initial-scale=1.0">
+		<script type="text/javascript" src="js/jquery.appear.js"></script>
 	</head>
 	<body id="youtubeapp">
-		<div id="welcome" class="text center">
-		  <div class="text center">
-		    <h1 class="">Yuju for Kids</h1>
-		    <p>The best way to see videos safely.</p>
-		  </div>
-		</div>
 		<!--
-		<div id="search">
-			<input id="search-text" type="text" placeholder="Enter keywords here"/>
-			<input id="search-button" type="button" value="Search"/>
-		</div>
+		Videos List
 		-->
 		<ul id="videos-list"></ul>
 		<div id="video-viewer">
 	  		<div id="video-wrapper"></div>
 		</div>
-
+		<!--
+		Enable and Disable depending if video is On/Off
+		-->
 		<div class="close"></div>
-		
-		
+		<!--
+		Template
+		-->
+		<script type="text/template" id="video-template">
+			<a href="#video/<%- id %>">
+				<div id="container">
+					<div class="c--block card" data-hex="" id="wrapper">
+						<img class="thumb" src="<%- thumb %>" width="120" height="90">
+						<h1 class="length"><%- duration %>&quot;</h1>
+						<span class="author"><%- author %></span>
+						<span class="length"><%- title %></span>
+					</div>	
+				</div>
+			</a>
+		</script>
+		<!--
+		g+ effect
+		-->
+		<script type='text/javascript'>
+			$(function() {
+			  $(document.body).on('appear', '.card', function(e, $affected) {
+			    // add class called “appeared” for each appeared element
+			    $(this).addClass("appeared");
+			  });
+			  $('.card').appear({force_process: true});
+			});
+		</script>
 	</body>
-	<script type="text/template" id="video-template">
-		<div id="container">
-			<div class="c--block" data-hex="" id="wrapper">
-				<a href="#video/<%- id %>"><img class="thumb" src="<%- thumb %>" width="120" height="90"></a>
-				<span class="author"><%- author %></span>
-				<span class="length"><%- title %></span>
-			</div>	
-		</div>
-	</script>
 </html>​

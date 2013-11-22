@@ -20,13 +20,6 @@ iframe{
   border: 0;
 }
 
-#welcome{
-	position: absolute;
-	background-color: white;
-	opacity:.4;
-	z-index: 1;
-}
-
 /**  **/
 #search{
 	position: relative;
@@ -80,19 +73,11 @@ iframe{
 	margin: 5px 0 0 0;
 	padding: 0;
 }
-#videos-list.loading{
-	background-image: url('../img/loader.gif');
-	background-repeat: no-repeat;
-	background-position: center center;
-	height: 400px;
-}
-#videos-list.loading > *{
-	display: none;
-}
 
 #container{
-	text-align: center;
+	text-align: left;
 	z-index: 0;
+	margin: 5px;
 }
 
 .thumb{
@@ -112,7 +97,7 @@ iframe{
 	color: #666;
 }
 .author{
-	margin-top:15px; 
+	margin-top:-15px;
 	display: block;
 	font-family: "Myriad Pro", helvetica, sans-serif;
 	color:black;
@@ -130,8 +115,8 @@ iframe{
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
   border-radius: 50%;
-  height: 40px;
-  width: 40px;
+  height: 60px;
+  width: 60px;
   background-color: #f3f3f3;
   background-position: center;
   background-repeat: no-repeat;
@@ -288,3 +273,24 @@ iframe{
 .text h1 {text-align:center;color:#FFF;margin-top:70px;font-family: 'Arvo', serif;font-weight:400;font-size:36px;}
 .text p {text-align:center;color:#FFF;margin-top:0px;font-family: 'Lato', serif;font-weight:400;font-size:18px;}
 
+/* --------------------- google effect -------------------------- */
+.card {
+    /*width: 350px;*/
+    /*height: 150px;*/
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    -webkit-transition: all 400ms ease;
+    -moz-transition: all 400ms ease;
+    -o-transition: all 400ms ease;
+    transition: all 400ms ease;
+    -webkit-transform:  translate3d(0px, 100px, 0) rotateX(-30deg) scale(1.25, 1.25);
+    -moz-transform: translate3d(0px, 100px, 0) rotateX(-30deg) scale(1.25, 1.25);
+    transform: translate3d(0px, 100px, 0) rotateX(-30deg) scale(1.25, 1.25);
+    /*opacity: 0;*/
+}
+ 
+.card.appeared{
+    -webkit-transform: translate3d(0px, 0px, 0px) rotateX(0)  scale(1, 1);
+    -moz-transform:  translate3d(0px, 0px, 0px) rotateX(0)  scale(1, 1);
+    transform: translate3d(0px, 0px, 0px) rotateX(0)  scale(1, 1);
+    opacity: 1;
+}

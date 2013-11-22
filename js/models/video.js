@@ -8,7 +8,7 @@ var app = app || {};
     },
 
     initialize: function(){
-      this.set('duration', seconds2time (this.get('duration')));
+//      this.set('duration', seconds2time (this.get('duration')));
 
       function seconds2time (seconds) {
         var hours   = Math.floor(seconds / 3600);
