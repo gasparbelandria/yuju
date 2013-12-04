@@ -14,9 +14,22 @@
 		<script src="js/views/app.js" charset="utf-8"></script>
 		<script src="js/app.js" charset="utf-8"></script>
 		<script src="js/routers/router.js" charset="utf-8"></script>
-		<script type="text/javascript" src="js/jquery.appear.js"></script>
+		<script type="text/javascript">
+			function blockMove() {
+				var lastY;
+				$(document).bind('touchmove', function (e){
+				    var currentY = e.touches[0].clientY;
+				    if (currentY !== lastY){
+				        // moved vertically
+				        return;
+				    }
+				    lastY = currentY;
+				    //insert code if you want to execute something when an horizontal touchmove is made
+				});
+			}
+		</script>		
 	</head>
-	<body id="youtubeapp">
+	<body id="youtubeapp" ontouchmove="blockMove()">
 		<!--
 		Videos List
 		-->
@@ -25,16 +38,48 @@
 	  		<div id="video-wrapper"></div>
 		</div>
 		<!--
+		Config options
+		-->
+		<div id="view_config" class="menu">
+			<span id="list">List</span><br />
+			<span id="add">Add</span><br />
+			<span id="feedback">Feedback</span>
+		</div>
+		<!--
+		List
+		-->
+		<div id="view_list" class="list">
+		</div>
+		<!--
+		Add
+		-->
+		<div id="view_add" class="add">
+			<div id="search">
+				<input id="search-text" type="text" placeholder="Enter keywords here"/>
+				<input id="search-button" type="button" value="Search"/>
+			</div>
+			<div id="searchMessage"></div>
+		</div>		
+		<!--
+		Feedback
+		-->
+		<div id="view_feedback" class="feedback">
+			<span id="">@gasparbelandria</span><br />
+			<span style="font-size:18px; font-style:italic">"Please contact me for questions or suggestions. I hope this app be useful to you."</span>
+		</div>
+		<!--
 		Enable and Disable depending if video is On/Off
 		-->
 		<div class="close"></div>
+		<div class="config"></div>
+		<div class="return"></div>
 		<!--
 		Template
 		-->
 		<script type="text/template" id="video-template">
-			<a href="#video/<%- id %>">
+			<a href="#video/<%- id %>" id="user_<%- str %>">
 				<div id="container">
-					<div class="c--block card" data-hex="" id="wrapper">
+					<div class="c--block" data-hex="" id="wrapper" style="background-color:#fd6631">
 						<img class="thumb" src="<%- thumb %>" width="120" height="90">
 						<h1 class="length"><%- duration %>&quot;</h1>
 						<span class="author"><%- author %></span>
@@ -43,17 +88,11 @@
 				</div>
 			</a>
 		</script>
-		<!--
-		g+ effect
-		-->
-		<script type='text/javascript'>
-			$(function() {
-			  $(document.body).on('appear', '.card', function(e, $affected) {
-			    // add class called “appeared” for each appeared element
-			    $(this).addClass("appeared");
-			  });
-			  $('.card').appear({force_process: true});
-			});
-		</script>
+		<script>
+	        var sources = window.localStorage.getItem("sources");
+	        if ((sources==null) || (sources=="")){
+	      		window.localStorage.setItem("sources", JSON.stringify(['Sprout','SesameStreet','yogabbagabba','simplekidscrafts','cartoonnetwork','MuppetsStudio','WordWorldPBS','bigredhatkids','babyeinstein','hooplakidz','toysrusonline']));
+	        }
+      </script>
 	</body>
 </html>​

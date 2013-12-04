@@ -1,0 +1,11 @@
+<qnx>
+    <icon>
+        <image>icon.png</image>
+    </icon>
+    <author>Gaspar Belandria</author>
+    <authorId>gYAAgH986kEjjxZ4TwvYJ70Z1zo</authorId>
+    <category>core.media</category>
+    <splashscreen>foreground.gif</splashscreen>
+    <buildId>2.0</buildId>
+    <platformVersion>2.0.0.0</platformVersion>
+</qnx>
