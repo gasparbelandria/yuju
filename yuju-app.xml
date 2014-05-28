@@ -6,6 +6,6 @@
     <authorId>gYAAgH986kEjjxZ4TwvYJ70Z1zo</authorId>
     <category>core.media</category>
     <splashscreen>foreground.gif</splashscreen>
-    <buildId>2.0</buildId>
-    <platformVersion>2.0.0.0</platformVersion>
+    <buildId>3.0.0.0</buildId>
+    <platformVersion>3.0.0.0</platformVersion>
 </qnx>

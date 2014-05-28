@@ -4,6 +4,11 @@
 		<meta name="viewport" content="user-scalable=no,initial-scale=1.0"> 
 		<link rel="stylesheet" href="css/style.css" 	type="text/css" media="screen" charset="utf-8">
 		<link href='http://fonts.googleapis.com/css?family=Arvo:400,700|Lato:400,500' rel='stylesheet' type='text/css'>
+		<!--
+		Menu styles
+		-->
+		<link rel="stylesheet" type="text/css" href="css/icons.css" />
+		<link rel="stylesheet" type="text/css" href="css/style4.css" />
 		<script src="http://code.jquery.com/jquery-1.9.0.min.js" charset="utf-8"></script>
 		<script src="http://code.jquery.com/jquery-migrate-1.1.1.js"></script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js" charset="utf-8"></script>
@@ -14,72 +19,65 @@
 		<script src="js/views/app.js" charset="utf-8"></script>
 		<script src="js/app.js" charset="utf-8"></script>
 		<script src="js/routers/router.js" charset="utf-8"></script>
-		<script type="text/javascript">
-			function blockMove() {
-				var lastY;
-				$(document).bind('touchmove', function (e){
-				    var currentY = e.touches[0].clientY;
-				    if (currentY !== lastY){
-				        // moved vertically
-				        return;
-				    }
-				    lastY = currentY;
-				    //insert code if you want to execute something when an horizontal touchmove is made
-				});
-			}
-		</script>		
+		<script type="text/javascript" src="js/jquery.appear.js"></script>
+		<title>Videos for kids</title>
 	</head>
-	<body id="youtubeapp" ontouchmove="blockMove()">
+	<body id="youtubeapp">
 		<!--
 		Videos List
 		-->
-		<ul id="videos-list"></ul>
-		<div id="video-viewer">
+		<ul id="videos-list" style="overflow:hidden"></ul>
+		<div id="video-viewer" style="overflow:hidden;">
 	  		<div id="video-wrapper"></div>
-		</div>
-		<!--
-		Config options
-		-->
-		<div id="view_config" class="menu">
-			<span id="list">List</span><br />
-			<span id="add">Add</span><br />
-			<span id="feedback">Feedback</span>
-		</div>
-		<!--
-		List
-		-->
-		<div id="view_list" class="list">
-		</div>
-		<!--
-		Add
-		-->
-		<div id="view_add" class="add">
-			<div id="search">
-				<input id="search-text" type="text" placeholder="Enter keywords here"/>
-				<input id="search-button" type="button" value="Search"/>
-			</div>
-			<div id="searchMessage"></div>
-		</div>		
-		<!--
-		Feedback
-		-->
-		<div id="view_feedback" class="feedback">
-			<span id="">@gasparbelandria</span><br />
-			<span style="font-size:18px; font-style:italic">"Please contact me for questions or suggestions. I hope this app be useful to you."</span>
 		</div>
 		<!--
 		Enable and Disable depending if video is On/Off
 		-->
 		<div class="close"></div>
-		<div class="config"></div>
-		<div class="return"></div>
 		<!--
+		Menu
+		-->
+		<nav id="bt-menu" class="bt-menu">
+			<a href="#" class="bt-menu-trigger"><span>Menu</span></a>
+			<ul>
+				<li>
+<!-- AddThis Smart Layers BEGIN -->
+<!-- Go to http://www.addthis.com/get/smart-layers to customize -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-521201b62a5dad94"></script>
+<script type="text/javascript">
+  addthis.layers({
+    'theme' : 'dark',
+    'share' : {
+      'position' : 'right',
+      'numPreferredServices' : 6
+    }, 
+    'follow' : {
+      'services' : [
+        {'service': 'twitter', 'id': 'gasparbelandria'},
+        {'service': 'linkedin', 'id': 'gasparbelandria'}
+      ]
+    }   
+  });
+</script>
+<!-- AddThis Smart Layers END -->					
+				</li>
+				<!--<li id="contact"><a href="#" class="bt-icon icon-email">Email</a></li>-->
+				<li id="twitter"><a href="http://twitter.com/gasparbelandria" class="bt-icon icon-twitter" target="_blank">Twitter</a></li>
+			</ul>
+			<!--
+			<ul>
+				<li id="add"><a href="#" class="bt-icon icon-file-add">Add</a></li>
+				<li id="delete"><a href="#" class="bt-icon icon-trash">Delete</a></li>
+			</ul>
+			-->
+		</nav>
+		<!--icon-pause
 		Template
 		-->
 		<script type="text/template" id="video-template">
-			<a href="#video/<%- id %>" id="user_<%- str %>">
+			<a href="#video/<%- id %>">
 				<div id="container">
-					<div class="c--block" data-hex="" id="wrapper" style="background-color:#fd6631">
+					<div class="c--block card" data-hex="" id="wrapper" style="background-color:#fd6631">
 						<img class="thumb" src="<%- thumb %>" width="120" height="90">
 						<h1 class="length"><%- duration %>&quot;</h1>
 						<span class="author"><%- author %></span>
@@ -88,11 +86,22 @@
 				</div>
 			</a>
 		</script>
-		<script>
-	        var sources = window.localStorage.getItem("sources");
-	        if ((sources==null) || (sources=="")){
-	      		window.localStorage.setItem("sources", JSON.stringify(['Sprout','SesameStreet','yogabbagabba','simplekidscrafts','cartoonnetwork','MuppetsStudio','WordWorldPBS','bigredhatkids','babyeinstein','hooplakidz','toysrusonline']));
-	        }
-      </script>
+		<!--
+		g+ effect
+		-->
+		<script type='text/javascript'>
+			$(function() {
+			  $(document.body).on('appear', '.card', function(e, $affected) {
+			    // add class called “appeared” for each appeared element
+			    $(this).addClass("appeared");
+			  });
+			  $('.card').appear({force_process: true});
+			});
+		</script>
+		<!--
+		Menu manager
+		-->
+		<script src="js/classie.js"></script>
+		<script src="js/borderMenu.js"></script>
 	</body>
 </html>​
